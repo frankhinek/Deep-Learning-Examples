@@ -1,7 +1,6 @@
 '''
 A simple example showing how to restore two TensorFlow variables from disk.
-The accompanying tf-save-vars.py script demonstrates how to save these
-variables.
+The accompanying tf-save-vars.py script must be run first.
 '''
 
 import tensorflow as tf
