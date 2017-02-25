@@ -23,15 +23,18 @@ bias = tf.Variable(tf.truncated_normal([3]))
 # Class used to save and/or restore Tensor Variables
 saver = tf.train.Saver()
 
-with tf.Session() as sess:
-    # Initialize all the Variables
-    sess.run(tf.global_variables_initializer())
+# Initializing the variables
+init = tf.global_variables_initializer()
+
+# Launch the graph
+with tf.Session() as session:
+    session.run(init)
 
     # Show the values of weights and bias
     print('Weights:')
-    print(sess.run(weights))
+    print(session.run(weights))
     print('Bias:')
-    print(sess.run(bias))
+    print(session.run(bias))
 
     # Save the model
-    saver.save(sess, save_file)
+    saver.save(session, save_file)

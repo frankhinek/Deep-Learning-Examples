@@ -16,12 +16,13 @@ bias = tf.Variable(tf.truncated_normal([3]))
 # Class used to save and/or restore Tensor Variables
 saver = tf.train.Saver()
 
-with tf.Session() as sess:
+# Launch the graph
+with tf.Session() as session:
     # Load the weights and bias
-    saver.restore(sess, save_file)
+    saver.restore(session, save_file)
 
     # Show the values of weights and bias
     print('Weight:')
-    print(sess.run(weights))
+    print(session.run(weights))
     print('Bias:')
-    print(sess.run(bias))
+    print(session.run(bias))
