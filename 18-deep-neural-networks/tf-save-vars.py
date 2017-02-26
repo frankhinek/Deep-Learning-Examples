@@ -17,8 +17,8 @@ import tensorflow as tf
 save_file = "./model.ckpt"
 
 # Two Tensor Variables: weights and bias
-weights = tf.Variable(tf.truncated_normal([2, 3]))
-bias = tf.Variable(tf.truncated_normal([3]))
+weights = tf.Variable(tf.truncated_normal([2, 3]), name='weights_0')
+bias = tf.Variable(tf.truncated_normal([3]), name='bias_0')
 
 # Class used to save and/or restore Tensor Variables
 saver = tf.train.Saver()

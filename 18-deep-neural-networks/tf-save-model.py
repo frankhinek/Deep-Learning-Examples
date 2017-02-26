@@ -41,8 +41,8 @@ features = tf.placeholder(tf.float32, [None, n_input])
 labels = tf.placeholder(tf.float32, [None, n_classes])
 
 # Weights & bias
-weights = tf.Variable(tf.random_normal([n_input, n_classes]))
-bias = tf.Variable(tf.random_normal([n_classes]))
+weights = tf.Variable(tf.random_normal([n_input, n_classes]), name='weights_0')
+bias = tf.Variable(tf.random_normal([n_classes]), name='bias_0')
 
 # Logits - xW + b
 logits = tf.add(tf.matmul(features, weights), bias)
