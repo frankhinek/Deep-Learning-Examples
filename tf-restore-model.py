@@ -34,7 +34,8 @@ bias = tf.Variable(tf.random_normal([n_classes]), name='bias_0')
 logits = tf.add(tf.matmul(features, weights), bias)
 
 # Define loss and optimizer
-cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits, labels))
+cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=logits,\
+    labels=labels))
 optimizer = tf.train.GradientDescentOptimizer(learning_rate=learning_rate)\
     .minimize(cost)
 
