@@ -1,63 +1,99 @@
-## Running the Udacity Deep Learning Foundations image classification project on floydhub.com
+## Running the Udacity Deep Learning Nanodegree Foundation Image Classification Project on Floydhub.com
 
-1. Create an account on [floydhub.com](https://www.floydhub.com) (don't forget to confirm your email). You will automatically receive 100 free GPU hours. 
+Original Repository: [LudwikTrammer / deep-learning](https://github.com/ludwiktrammer/deep-learning)
 
-2. Install the `floyd` command on your computer:
+1. Create an account on [Floydhub.com](https://www.floydhub.com) (don't forget
+to confirm your email). You will automatically receive 100 free GPU hours.
+
+1. Install the `floyd` command on your computer:
 
         pip install -U floyd-cli
-        
-    Do this even if you already installed `floyd-cli` before, just to make sure you have the most recent version (its peace of development is fast!).
 
-3. Associate the command with your Floyd account:
+    Do this even if you already installed `floyd-cli` before, to ensure you have
+    the most recent version.
+
+1. Authenticate using your Floydhub credentials:
 
         floyd login
 
-    (a page with authentication token will open; you will need to copy the token into your terminal)
+    The Floydhub welcome page will be launched by your default web browser
+    with an authentication token displayed near the bottom.  Copy and paste the
+    token into the prompt in your terminal.
 
-2. Clone this repository:
+1. Clone this repository:
 
-        git clone https://github.com/ludwiktrammer/deep-learning.git
+        git clone https://github.com/frankhinek/Deep-Learning-Examples.git
 
-    Note: There are couple minor differences between this repository and the original Udacity repository. You can read about them [in README](https://github.com/ludwiktrammer/deep-learning/tree/master/image-classification#how-is-this-repository-different-from-the-original). To follow this instructions you need to use this repository.
+    Note: There are a few minor differences between this repository and the
+    original Udacity repository, which are detailed later in this README.
 
-3. Enter the folder for the image classification project:
+1. Enter the folder for the image classification project:
 
         cd image-classification
 
-4. Initiate a Floyd project:
+1. Initialize a Floydhub project:
 
         floyd init dlnd_image_classification
 
-5. Run the project:
+1. Run the project:
 
         floyd run --gpu --env tensorflow --mode jupyter --data diSgciLH4WA7HpcHNasP9j
 
-    It will be run on a machine with GPU (`--gpu`), using a Tenserflow environment (`--env tensorflow`), as a Jupyter notebook (`--mode jupyter`), with Floyd's built-in cifar-10 dataset  available (`--data diSgciLH4WA7HpcHNasP9j`).
-    
-6. Wait for the Jupyter notebook to become available and then access the URL displayed in the terminal (described as "path to jupyter notebook"). You will see the notebook.
+    It will be run on a machine with GPU (`--gpu`), using a Tensorflow 0.12.1 +
+    Keras 1.2.2 on Python3 environment (`--env tensorflow`), as a Jupyter
+    notebook (`--mode jupyter`), with Floyd's built-in cifar-10 dataset
+    available (`--data diSgciLH4WA7HpcHNasP9j`).
 
-7. Remember to explicitly stop the experiment when you are not using the notebook. As long as it runs (even in the background) it will cost GPU hours. You can stop an experiment in the ["Experiments" section on floyd.com](https://www.floydhub.com/experiments) or using the `floyd stop` command:
+1. Wait for the Jupyter notebook to become available and then access the URL
+displayed in the terminal (described as "Path to jupyter notebook").
+
+1. Remember to explicitly stop the experiment when you are not using the
+notebook. As long as it runs (even in the background) it will cost GPU hours.
+You can stop an experiment in the ["Experiments" section on floyd.com](https://www.floydhub.com/experiments)
+or using the `floyd stop` command:
 
         floyd stop ID
- 
-    (where ID is the "RUN ID" displayed in the terminal when you run the project; if you lost it you can also find it in the ["Experiments" section on floyd.com](https://www.floydhub.com/experiments))
-    
-**Important:** When you run a project it will always start from scratch (i.e. from the state present *locally* on your computer). If you made changes in the remote jupiter notebook during a previous run, the changes will **not** be present in subsequent runs. To make them permanent you need to add the changes to your local project folder. When running the notebook you can download them directly from Jupyter - *File / Download / Notebook*. After downloading it, just replace your local `dlnd_image_classification.ipynb` file with the newly downloaded one.
 
-Alternatively, If you already stoped the experiment, you can still download the file using the `floyd output` command:
+    where `ID` is the "RUN ID" displayed in the terminal when you run the
+    project.  You can list the RUN IDs of recent projects using the
+    `floyd status` command.
+
+**Important:** When you run a project it will always start from scratch
+(i.e. from the state present *locally* on your computer). If you made changes in
+the remote jupyter notebook during a previous run, the changes will **not** be
+present in subsequent runs. To make them permanent you need to add the changes
+to your local project directory. When running the notebook you can download them
+directly from Jupyter - *File / Download / Notebook*. After downloading the
+notebook, replace your local `dlnd_image_classification.ipynb` file with the
+version you downloaded.
+
+Alternatively, if you already stoped the experiment, you can still download the
+file using the `floyd output` command:
 
     floyd output ID
 
-(where ID is the "RUN ID" displayed in the terminal when you run the project; if you lost it you can also find it in the ["Experiments" section on floyd.com](https://www.floydhub.com/experiments))
-    
-Just run the command above, download `dlnd_image_classification.ipynb` and replace your local version with the newly downloaded one.
+    where `ID` is the "RUN ID" displayed in the terminal when you run the
+    project.  You can list the RUN IDs of recent projects using the
+    `floyd status` command.
+
+Just run the command above, download `dlnd_image_classification.ipynb` and
+replace your local version with the newly downloaded one.
 
 ## How is this repository different from [the original](https://github.com/udacity/deep-learning)?
 
-1. I added support for Floyds built-in cifar-10 dataset. If its presence is detected, it will be used, without a need to download anything. ([see the commit](https://github.com/ludwiktrammer/deep-learning/commit/2e84ff7852905f154f1692f67ca15da28ac43149), [learn more abut datasets provided by Floyd](http://docs.floydhub.com/guides/datasets/))
+1. [Ludwik Trammer](https://github.com/ludwiktrammer) added support for
+Floydhub's built-in CIFAR-10 dataset. If its presence is detected, it will be
+used, without a need to download anything. You can [read more about datasets provided by Floydhub](http://docs.floydhub.com/guides/datasets/)).
 
-2. I added a `floyd_requirements.txt` file, so an additional dependency is automatically taken care of. ([see the commit](https://github.com/ludwiktrammer/deep-learning/commit/80b459411d4395dacf8f46be0b028c81858bd97a), [learn more about `.floyd_requirements.txt` files](http://docs.floydhub.com/home/installing_dependencies/))
+2. [Ludwik Trammer](https://github.com/ludwiktrammer) added a
+`floyd_requirements.txt` file, so that the tqdm package dependency Udacity used
+in the predefined code is installed into the Floydhub run time environment. You
+can [about how Floydhub handles installing additional Python packages](http://docs.floydhub.com/home/installing_dependencies/).
 
-3. I added a `.floydignore` file to stop local data from being uploaded to Floyd - which wastes time and may even result in a timeout ([see the commit](https://github.com/ludwiktrammer/deep-learning/commit/30d4b536b67366feef38425ce1406e969452717e), [learn a little about `.floydignore` files](http://docs.floydhub.com/commands/init/#description))
+3. [Ludwik Trammer](https://github.com/ludwiktrammer) added a `.floydignore`
+file to stop the 1.5GiB of CIFAR-10 data from being uploaded to Floyd.  This
+wastes time, can cause timeouts, and will result in data charges being assessed.
+There is limited documentation at the moment, but you can [read about `.floydignore` files on the Floydhub documentation site](http://docs.floydhub.com/commands/init/#description).
 
-3. I added this README
+3. [Ludwik Trammer](https://github.com/ludwiktrammer) added this README, which I
+subsequently modified.
