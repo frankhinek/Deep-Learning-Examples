@@ -72,9 +72,8 @@ file using the `floyd output` command:
 
         floyd output ID
 
-    where `ID` is the "RUN ID" displayed in the terminal when you run the
-    project.  You can list the RUN IDs of recent projects using the
-    `floyd status` command.
+where `ID` is the "RUN ID" displayed in the terminal when you run the project.
+You can list the RUN IDs of recent projects using the `floyd status` command.
 
 Just run the command above, download `dlnd_image_classification.ipynb` and
 replace your local version with the newly downloaded one.
