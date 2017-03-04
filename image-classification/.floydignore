@@ -15,9 +15,10 @@ var
 checkpoint
 cifar-10-python.tar.gz
 cifar-10-batches-py
-image_classification.data-*
-image_classification.index
-image_classification.meta
-preprocess_batch_*.p
+preprocess_batch_1.p
+preprocess_batch_2.p
+preprocess_batch_3.p
+preprocess_batch_4.p
+preprocess_batch_5.p
 preprocess_training.p
 preprocess_validation.p
