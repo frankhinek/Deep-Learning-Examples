@@ -70,7 +70,7 @@ version you downloaded.
 Alternatively, if you already stoped the experiment, you can still download the
 file using the `floyd output` command:
 
-    floyd output ID
+        floyd output ID
 
     where `ID` is the "RUN ID" displayed in the terminal when you run the
     project.  You can list the RUN IDs of recent projects using the
