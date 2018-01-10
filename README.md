@@ -3,5 +3,6 @@ A collection of deep learning examples written in Python.  Most are implemented
 using TensorFlow.
 
 ## Notes:
-* Only tested under Python 3.5
-* Only tested under TensorFlow 1.0.0
+Unless otherwise noted, all code was only validated with:
+* Python 3.5
+* TensorFlow 1.0.0
